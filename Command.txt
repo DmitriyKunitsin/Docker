@@ -1,0 +1,29 @@
+docker rm $(docker ps -a -q -f status=exited)
+удалит все контейнеры со статусом выполнено
+
+docker ps -a
+выводит все контейнеры
+
+$ docker run -d -P --name <nameImages>
+Флаг -d открепит (detach) терминал, флаг -P сделает все открытые порты публичными и случайными, и, наконец,
+флаг --name это имя, которое мы хотим дать контейнеру.
+
+docker port <nameImages>
+можно увидеть порты с помощью команды docker port [CONTAINER]
+
+Можно обозначить свой порт. Клиент будет перенаправлять соединения на него.
+$ docker run -p 8888:80 [CONTAINER]
+
+seabassc@seabassc-RedmiBook-16:~/Desktop/Docker] (main)]$ docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED         SIZE
+busybox                                  latest    ba5dc23f65d4   11 months ago   4.26MB
+ghcr.io/dmitriykunitsin/docker/busybox   latest    ba5dc23f65d4   11 months ago   4.26MB
+hello-world                              latest    d2c94e258dcb   11 months ago   13.3kB
+prakhar1989/static-site                  latest    f01030e1dcf3   8 years ago     134MB
+Это список образов, которые я скачал из регистра, а также тех, что я сделал сам (скоро увидим, как это делать). 
+TAG — это конкретный снимок или снэпшот (snapshot) образа, а IMAGE ID — это соответствующий уникальный идентификатор образа.
+
+
+Base images (базовые образы) — это образы, которые не имеют родительского образа. Обычно это образы с операционной системой, такие как ubuntu, busybox или debian.
+Child images (дочерние образы) — это образы, построенные на базовых образах и обладающие дополнительной функциональностью.
+
