@@ -1,0 +1,16 @@
+version: '3.1' #версия файла
+
+services: #объявление секций с сервисами, которые будут запущены
+
+  db: #им присвоены имена
+    image: mariadb #указан образ, который бдуте использован
+    restart: always # можно обеспечить автоматический перезапуск 
+    #1) no - никогда 2) on-failure - посл критич сбоя 3) always - всегда
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+
+  adminer: #им присвоены имена
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
