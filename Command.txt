@@ -30,3 +30,24 @@ Child images (дочерние образы) — это образы, постр
 docker save -o my_first_docker.tar my_first_docker
    Эта команда сохранит мой образ my_first_docker как архив my_first_docker.tar в текущем каталоге.
 
+
+    Удалил все контейнеры которые завершили свою работу
+
+docker rm $(docker ps -a -q -f status=exited)
+
+    Собрал свой контейнер
+
+docker build -t my_first_docker .
+
+    Запустил
+
+docker run -p 8888:5000 my_first_docker
+
+
+docker diff ImageName 
+предоставляет список файлов измененых в работающем конйтенере
+
+docker logs ImageName
+Будет выведен список всех событий произошедший внутри контейнера
+
+

@@ -1,6 +1,3 @@
-![alt text](/2_Docker/screen/image.png)
-
-```
 FROM ubuntu
 # равноценна docker run -it ubuntu bash
 
@@ -10,6 +7,3 @@ RUN apt-get update && apt-get install -y cowsay && ln -s /usr/games/cowsay /usr/
 
 ENTRYPOINT [ "cowsay" ]
 # позволяет при написании "docker run seabassc/cowsay"  не писать команду cowsay после seabassc/cowsay
-
-```
-
