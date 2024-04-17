@@ -1,16 +1,16 @@
 #our base image
 #Для начала укажем базовый образ. Для этого нужно использовать ключевое слово FROM
-FROM python:3.8-onbuild
+FROM python:3-onbuild
 
 
 # Копирование requirements.txt внутрь контейнера
 COPY requirements.txt /usr/src/app/
 
 #Копированине app.py внутрь контейнера
-COPY app.pu /usr/src/app/
+COPY app.py /usr/src/app/
 
 #установка зависимостей из requirements.txt
-RUN pip install -r --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 #specify the port number the container should expose
