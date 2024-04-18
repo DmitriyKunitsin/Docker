@@ -1,0 +1,18 @@
+version: '3.1' #версия файла
+
+services: #объявление секций с сервисами, которые будут запущены
+
+  db: #им присвоены имена
+    build: ./db #указан образ, который бдуте использован
+    restart: always # можно обеспечить автоматический перезапуск 
+    #1) no - никогда 2) on-failure - посл критич сбоя 3) always - всегда
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+    volumes:
+      - ./databases:/var/lib/mysql
+
+  adminer: #им присвоены имена
+    build: ./adminer # благодаря такой реализации, можно вносить изменения в Dockerfile каждой сборки
+    restart: always
+    ports:
+      - 8080:8080
